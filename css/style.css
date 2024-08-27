@@ -1,0 +1,202 @@
+/**
+ *  Define imports
+**/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/**
+ *  CSS Reset
+**/
+
+*, *::before, *::after{
+    box-sizing: border-box; 
+}
+
+*{
+    margin: 0; 
+    padding: 0; 
+}
+
+ul[role='list'], ol[role='list']{
+    list-style: none; 
+}
+
+html:focus-within{
+    scroll-behavior: smooth; 
+}
+
+a:not([class]){
+    text-decoration-skip-ink: auto; 
+}
+
+img, picture, svg, video, canvas{
+    max-width: 100%;
+    height: auto; 
+    vertical-align: middle; 
+    font-style: italic; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+input, button, textarea, select{
+    font: inherit; 
+}
+
+@media (prefers-reduced-motion: reduce){
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+body, html {
+    height: 100%; 
+    scroll-behavior: smooth; 
+}
+
+/**
+ *  This is where the fun begins...
+**/
+
+:root {
+    --background: #1a1a1a;
+    --card-background: #fff;
+    --card-border-radius: 24px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    font-family: Roboto, sans-serif;    
+}
+
+main {
+    display: grid;
+    padding: 20px;
+    max-width: 425px;
+    margin: 0px auto;
+    grid-gap: 20px;
+}
+
+
+.card {
+    border-radius: var(--card-border-radius);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+}
+
+#me {
+    display: grid;
+    padding: 40px;
+    background-color: rgb(0, 0, 0, 0.35);
+}
+
+#me > img {
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%);
+}
+
+#me > h1 {
+    color: #fff;
+    margin: 40px auto 0px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-optical-sizing: auto;
+    line-height: initial;
+}
+
+main span {
+    color: #7f7f7f;
+    font-size: 12px;
+    text-align: center;
+}
+
+#me ul {
+    list-style-type: none;
+}
+
+#me .proficiencies {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#me .proficiencies li {
+    display: inline-block;
+    margin: 3px;
+    color: #fff;
+    font-size: 12px;
+    background-color: rgb(29, 31, 32);
+    padding: 7.5px 15px;
+    border-radius: 15px;
+}
+
+#me .proficiencies li.highlight {
+    background: linear-gradient( rgb(29, 31, 32),  rgb(29, 31, 32)) padding-box,
+    linear-gradient(to right, #3B0539, #C1351B, #FCAF8A) border-box;
+    border-radius: 50em;
+    border: 2px solid transparent;
+}
+
+#me .socials {
+    margin: 20px auto 0px;
+}
+
+#me .socials li {
+    display: inline-block;
+    margin: 0px 6px 0px 0px;
+}
+
+#me .socials li a {
+    background-color: #fff;
+    border-radius: 8px;
+    color: rgb(29, 31, 32);
+    display: block;
+    height: 50px;
+    line-height: 49px;
+    text-align: center;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    width: 50px;
+}
+
+#me > .socials li a:hover {
+    background-color: rgba(255,255,255,0.8);
+    transform: translateY(-5px);
+}
+
+[data-tooltip]{
+    cursor: pointer;
+    position: relative;
+}
+
+[data-tooltip]::after {
+    background-color: #fff;
+    color: #222;
+    font-size:14px;
+    padding: 8px 12px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 6px;
+    position: absolute;
+    text-align: center;
+    bottom: -20px;
+    left: 50%;
+    content: attr(data-tooltip);
+    transform: translate(-50%, 110%) scale(0);
+    transform-origin: top;
+    transition: 0.14s;
+    box-shadow: 0 4px 14px 0 rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.05);
+  }
+
+  [data-tooltip]:hover:after {
+    display: block;
+    transform: translate(-50%, 110%) scale(1);
+  }
